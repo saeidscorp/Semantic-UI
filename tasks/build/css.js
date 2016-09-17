@@ -68,10 +68,12 @@ module.exports = function(callback) {
     return;
   }
 
+  var configPath = '../../../' + path.relative(process.cwd(), source.config).replace(/\\/g, '/');
+
   // unified css stream
   stream = gulp.src(source.definitions + '/**/' + globs.components + '.less')
     .pipe(plumber(settings.plumber.less))
-    .pipe(replace(/'..\/..\/theme.config'/g, "'" + config.paths.source.config + "'"))
+    .pipe(replace(/'\.\.\/\.\.\/theme.config'/g, '"' + configPath + '"'))
     .pipe(less(settings.less))
     .pipe(autoprefixer(settings.prefix))
     .pipe(replace(comments.variables.in, comments.variables.out))

@@ -66,8 +66,8 @@ module.exports = function(callback) {
 
   // unified css stream
   stream = gulp.src(source.definitions + '/**/' + globs.components + '.less')
-    .pipe(replace(/'\.\.\/\.\.\/theme.config'/g, '"' + configPath + '"'))
     .pipe(plumber())
+    .pipe(replace(/'\.\.\/\.\.\/theme.config'/g, '"' + configPath + '"'))
     .pipe(less(settings.less))
     .pipe(autoprefixer(settings.prefix))
     .pipe(rtlcss())
