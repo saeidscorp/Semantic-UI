@@ -7,6 +7,8 @@ var
 
   // node dependencies
   fs           = require('fs'),
+  path         = require('path'),
+  process      = require('process'),
 
   // gulp dependencies
   autoprefixer = require('gulp-autoprefixer'),
@@ -60,8 +62,11 @@ module.exports = function(callback) {
     return;
   }
 
+  var configPath = '../../../' + path.relative(process.cwd(), source.config).replace(/\\/g, '/');
+
   // unified css stream
   stream = gulp.src(source.definitions + '/**/' + globs.components + '.less')
+    .pipe(replace(/'\.\.\/\.\.\/theme.config'/g, '"' + configPath + '"'))
     .pipe(plumber())
     .pipe(less(settings.less))
     .pipe(autoprefixer(settings.prefix))
