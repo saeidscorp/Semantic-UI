@@ -8,10 +8,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/Semantic-Org/Semantic-UI.git"
+    "url": "git://github.com/saeidscorp/Semantic-UI.git"
   },
   "bugs": {
-    "url": "https://github.com/Semantic-Org/Semantic-UI/issues"
+    "url": "https://github.com/saeidscorp/Semantic-UI/issues"
   },
   "scripts": {
     "install": "gulp install"
